@@ -1,0 +1,41 @@
+<div class="login" >
+    
+    <div class="login-head">
+        <div class="login-title">
+            Log in to your account
+        </div>
+        <div class="login-welcome">
+            Welcome back! Please enter your details.
+        </div>
+        
+    </div>
+    <form [formGroup]="logInForm">
+        <div class="form-group">
+            <label for="Inputusername">Username</label>
+            <input type="text"  id="Inputusername"
+                 placeholder="Enter username" required 
+                name="username"  formControlName="username">
+            <div class="alert-danger" *ngIf="logInForm.controls.username.touched && logInForm.controls.username.errors?.required">Username is
+                required</div>
+                
+        </div>
+        <div class="form-group mb-3">
+            <label for="InputPassword">Password</label>
+            <input type="password"  id="InputPassword" formControlName="password"
+                placeholder="Password" required  
+                name="password">
+                <div class="alert-danger" *ngIf="logInForm.controls.password.touched && logInForm.controls.password.errors?.required">Password is
+                    required</div>
+                    
+        </div>
+        
+
+        <div >
+            <button type="submit"
+                [disabled]="logInForm.invalid  "
+                 (click)="signIn()">Sign in</button>
+        </div>
+
+    </form>
+</div>
+
