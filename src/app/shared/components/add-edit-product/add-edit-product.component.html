@@ -1,1 +1,112 @@
-<p>add-edit-product works!</p>
+
+
+
+
+
+
+
+<div class="container py-1">
+    <div class="header position-relative start-50 translate-middle-x pb-5">
+      <div class="title position-relative">
+        <h3 class="text-center">{{dialogData.action}} Product</h3>
+  
+  
+      </div>
+  
+  
+    </div>
+  
+  
+    <form [formGroup]="productForm">
+      <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" formControlName="title"  id="title">
+          <div class="alert alert-danger" *ngIf="productForm.controls.title.touched && productForm.controls.title.invalid ">
+            <span *ngIf="productForm.controls.title.errors?.required">This field is required.</span>
+
+          </div>
+        </div>
+  
+      <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" class="form-control" formControlName="price" id="price">
+          <div class="alert alert-danger" *ngIf="productForm.controls.price.touched && productForm.controls.price.invalid ">
+            <span *ngIf="productForm.controls.price.errors?.required">This field is required.</span>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating:</label>
+          <input type="number" class="form-control" formControlName="rating" id="rating">
+          <div class="alert alert-danger" *ngIf="productForm.controls.rating.touched && productForm.controls.rating.invalid ">
+            <span *ngIf="productForm.controls.rating.errors?.required">This field is required.</span>
+
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="stock">Stock:</label>
+          <input type="number" class="form-control" formControlName="stock" id="stock">
+          <div class="alert alert-danger" *ngIf="productForm.controls.stock.touched && productForm.controls.stock.invalid ">
+            <span *ngIf="productForm.controls.stock.errors?.required">This field is required.</span>
+
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="brand">Brand:</label>
+            <input type="text" class="form-control" formControlName="brand" id="brand">
+            <div class="alert alert-danger" *ngIf="productForm.controls.brand.touched && productForm.controls.brand.invalid ">
+              <span *ngIf="productForm.controls.brand.errors?.required">This field is required.</span>
+  
+            </div>
+          </div>
+          <div class="form-group"> 
+            <label for="category">Category:</label>
+            <input type="text" class="form-control" formControlName="category" id="category">
+            <div class="alert alert-danger" *ngIf="productForm.controls.category.touched && productForm.controls.category.invalid ">
+              <span *ngIf="productForm.controls.category.errors?.required">This field is required.</span>
+  
+            </div>
+          </div>
+
+          <div class="form-group"> 
+            <label for="discountPercentage">Discount Percentage:</label>
+            <input type="number" class="form-control" formControlName="discountPercentage" id="discountPercentage">
+            <div class="alert alert-danger" *ngIf="productForm.controls.discountPercentage.touched && productForm.controls.discountPercentage.invalid ">
+              <span *ngIf="productForm.controls.discountPercentage.errors?.required">This field is required.</span>
+  
+            </div>
+          </div>
+       
+        
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea class="form-control" rows="3" cols="40" id="description" formControlName="description"></textarea>
+          <div class="alert alert-danger" *ngIf="productForm.controls.description.touched && productForm.controls.description.invalid ">
+            <span *ngIf="productForm.controls.description.errors?.required">This field is required.</span>
+
+          </div>
+        </div>
+
+        
+        <div class="image-holder">
+          <img src="{{imagePath}}" alt="">
+        </div>
+        
+       
+  
+       
+      
+  </form>
+  <mat-dialog-actions align="center">
+  <button class="btn btn-primary me-1"  (click)="submit()"  [disabled]="!(productForm.valid && productForm.dirty ) " >{{action}}</button>
+  <button class="btn btn-danger"  mat-dialog-close>Close</button>
+  
+  </mat-dialog-actions>
+  
+  
+  </div>
+      
+        
+  
+    
+     

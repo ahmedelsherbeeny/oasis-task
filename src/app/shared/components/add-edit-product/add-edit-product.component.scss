@@ -1,0 +1,22 @@
+
+
+
+.image-holder{
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+   
+border-radius: 50%;
+   
+    
+
+        img{
+            max-width: 100%;
+            border-radius: 5px;
+            width: 260px;
+            height: 260px;
+        }
+        
+       
+    
+}

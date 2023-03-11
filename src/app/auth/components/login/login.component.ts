@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -19,8 +19,8 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.logInForm = this.fb.group({
-      username: [null, Validators.required],
-      password: [null, Validators.required]
+      username:[null, Validators.required] ,
+      password:[null, Validators.required] 
     })
   }
 
@@ -34,14 +34,13 @@ export class LoginComponent {
       password: formData.password
     }
     this.authService.logIn(data).subscribe((response: any) => {
+
       localStorage.setItem("token",JSON.stringify(response.token))
 
       // here user is authenticated and can redirect to home page
 
       this.router.navigate(['/home']);
 
-    }, (error: any) => {
-      alert(error.error.message)
     })
     
   }

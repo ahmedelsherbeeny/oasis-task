@@ -5,20 +5,31 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { CardViewComponent } from './components/card-view/card-view.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AddEditProductComponent } from './components/add-edit-product/add-edit-product.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ConfirmComponent } from './components/confirm/confirm.component';
+
 
 
 @NgModule({
   declarations: [
     CardViewComponent,
     NavBarComponent,
-    AddEditProductComponent
+    AddEditProductComponent,
+    ConfirmComponent
   ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    RouterModule
+    
   ],
   exports:[
-    NavBarComponent
+    NavBarComponent,
+    CardViewComponent
   ]
 })
 export class SharedModule { }

@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HandleRequestsInterceptor } from './shared/handle-requests.interceptor';
+import { LoaderInterceptor } from './shared/loader/loader.interceptor';
+
+
 
 
 @NgModule({
@@ -17,10 +22,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
     
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:HandleRequestsInterceptor,multi:true},
+    {provide:HTTP_INTERCEPTORS,useClass:LoaderInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

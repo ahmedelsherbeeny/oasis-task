@@ -1,0 +1,86 @@
+
+
+
+
+<section >
+    <div class="container py-5">
+      <div class="header position-relative start-50 translate-middle-x pb-5 ">
+        <div class="title position-relative">
+            <h3 class="text-dark">Product Details</h3>
+        </div>
+    </div>
+  
+  
+      <div  class="row">
+        <div class="col-lg-4 ">
+          <div class="card mb-4 text-light" >
+            <div class="box text-center">
+              <div class="image">
+                <img class="image-fluid rounded-circle" src="{{productDetails.images[0]}}" alt="avatar"
+                 >
+  
+              </div>
+  
+              <h5 class="my-3">{{productDetails.title}}</h5>
+              <p class="text-light mb-4">{{productDetails.description}}</p>
+  
+            </div>
+          </div>
+  
+        </div>
+        <div class="col-lg-8"  >
+          <div  class="card right mb-4 " style="background-color: #54b053;">
+            <div class="card-body" >
+              <div class="row">
+                <div  class="col-sm-3" >
+                  <p  class="mb-0 text-dark">Price</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-light mb-0">{{productDetails.price}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0 text-dark">Descount Percentage</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-light mb-0">{{productDetails.discountPercentage}} % </p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0 text-dark">Rating</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-light mb-0">{{productDetails.rating}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0 text-dark">Stock</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-light mb-0">{{productDetails.stock}}</p>
+                </div>
+              </div>
+              <hr>
+  
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0 text-dark">Brand</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-light mb-0">{{productDetails.brand}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+    </div>
+  </section>

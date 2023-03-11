@@ -1,1 +1,20 @@
-<p>products works!</p>
+
+
+
+    <div class="row">
+
+        
+        
+        <div class="col-sm-12 col-md-3" *ngFor="let product of products | paginate:{itemsPerPage:limit,currentPage:page} " >
+            <app-card-view [data]="product"></app-card-view>
+
+
+        </div>
+    </div>
+
+    <div class="pagination" *ngIf="products.length != 0">
+        <pagination-controls (pageChange)="page=$event"></pagination-controls>
+
+    </div>
+
+

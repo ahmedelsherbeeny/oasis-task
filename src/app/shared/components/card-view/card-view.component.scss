@@ -1,0 +1,174 @@
+
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 0.5px solid #424242;
+    border-radius: 8px;
+    position: relative;
+    height: 600px;
+    width: 310px;
+    margin-bottom: 15px;
+
+    .big-holder{
+        cursor: pointer;
+
+    }
+
+    .title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 550;
+        font-size: 15px;
+        line-height: 18px;
+
+        color: #344054;
+
+    }
+
+    .discount {
+        position: absolute;
+        width: fit-content;
+        height: 20px;
+        left: 5px;
+        top: 5px;
+        background-color: #56D9D9;
+        color: #344054;
+        display: flex;
+        justify-content: center;
+        border-radius: 4px;
+    }
+
+
+
+
+    .description {
+        max-width: 300px;
+        height: 74px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        color: #344054;
+    }
+
+    .prices {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+
+        .old-price {
+            text-decoration: line-through;
+        }
+
+        .old-price,
+        .current-price {
+            span {
+                color: #344054;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 17px;
+
+            }
+
+
+        }
+
+    }
+
+    .image-holder {
+        border-radius: 6px;
+
+        img {
+            border-radius: 6px;
+
+            max-width: 100%;
+            width: 350px;
+            height: 240px;
+        }
+    }
+
+    .rating {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2px;
+
+
+        .fa {
+            color: #F4B000;
+        }
+
+        .num {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+
+            text-align: center;
+
+            color: #1E1E1E;
+
+            opacity: 0.5;
+
+        }
+
+    }
+
+    .brand,
+    .category,
+    .stock,
+    .rating,
+    .prices,
+    .description,
+    .title {
+        padding: 7px;
+
+    }
+
+    button {
+        background: #56D9D9;
+        border-radius: 4px;
+        color: #344054;
+        border: none;
+        margin: 8px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+
+        &:disabled {
+            background-color: #ccc;
+            pointer-events: none;
+        }
+
+    }
+
+    .brand,
+    .category,
+    .stock {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+
+
+        color: #344054;
+
+        span {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 17px;
+
+        }
+    }
+}
