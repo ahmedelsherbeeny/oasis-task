@@ -88,9 +88,17 @@
         </div>
 
         
-        <div class="image-holder">
-          <img src="{{imagePath}}" alt="">
+        <div class="form-group file-upload" style="margin-left: 0;">
+
+          <label for="formFileLg" class="form-label">Image</label>
+    <input class="form-control form-control-lg" id="formFileLg" type="file" (change)="getImagePath($event)">
+
+    <div class="image-holder">
+      <img src="{{base64}}" alt="">
+    </div>
+  
         </div>
+       
         
        
   

@@ -24,7 +24,7 @@
         </ul>
         
         <button class="btn btn-primary me-2" (click)="openAddDialogProduct()" *ngIf="router.url=='/products' || router.url=='/home'" >Add</button>
-        <button class="btn btn-danger" (click)="openLogoutConfirmation()" >Log Out</button>
+        <button class="btn btn-danger" (click)="openLogoutConfirmation()" *ngIf="router.url=='/products' || router.url=='/home'" >Log Out</button>
 
       </div>
     </div>

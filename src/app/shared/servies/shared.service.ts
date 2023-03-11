@@ -8,6 +8,8 @@ export class SharedService {
 
   constructor(private dialog:MatDialog) { }
 
+
+  // shared function to open dialogues
   openComponent(component:any,data:any,width?:any){
     const dialogConfig=new MatDialogConfig()
     dialogConfig.data=data
@@ -16,9 +18,11 @@ export class SharedService {
     this.dialog.open(component,dialogConfig)
 
   }
+
   getToken(){
     return localStorage.getItem('token')
   }
+  
   checkToken(){
     return !!localStorage.getItem('token')
   }

@@ -15,11 +15,13 @@ export class ConfirmComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public dialogData:any) { }
 
   ngOnInit(): void {
+    // on opening the confirmation component we send details to appear in its template
     if(this.dialogData){
       this.details=this.dialogData
     }
   }
   handleAction(){
+    //on confirming we execute what we want like deleting or logging out
     this.onEmmitStatus.emit()
   }
 

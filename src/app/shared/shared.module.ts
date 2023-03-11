@@ -9,6 +9,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
@@ -17,7 +18,8 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     CardViewComponent,
     NavBarComponent,
     AddEditProductComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,

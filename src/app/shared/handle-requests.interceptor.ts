@@ -38,6 +38,9 @@ export class HandleRequestsInterceptor implements HttpInterceptor {
           }else if(err.status ==404){
             alert(' not found')
           }
+          else if(err.status ==413){
+            alert(err.error.message)
+          }
         }
         return throwError(err)
       })

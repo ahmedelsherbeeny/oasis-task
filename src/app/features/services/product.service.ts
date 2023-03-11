@@ -14,6 +14,8 @@ export class ProductService {
   constructor(private http:HttpClient) { }
 
   getProducts(){
+
+    // there is enum for api paths
     let url=`${this.URL}/${ApiPaths.getProducts}`
     return this.http.get(url)
   }

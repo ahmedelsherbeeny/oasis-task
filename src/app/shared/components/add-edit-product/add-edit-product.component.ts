@@ -15,11 +15,13 @@ export class AddEditProductComponent implements OnInit {
   productForm:any=FormGroup
   action:string='Add'
   dialogAction:string=''
-  imagePath:any=''
+  base64:any=''
 
 
   constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) public dialogData:any,
   private dialogref:MatDialogRef<AddEditProductComponent>,private productService:ProductService){}
+
+
 
   ngOnInit(): void {
 
@@ -32,15 +34,21 @@ export class AddEditProductComponent implements OnInit {
       category:[null,[Validators.required]],
       discountPercentage:[null,[Validators.required]],
       description:[null,[Validators.required]],
-      image:[null,[]],
+      image:[null],
 
     })
 
 
     if(this.dialogData.action==='Edit'){
+
+      // if we opened the edit form  we get the image if the product directly in th base64
+
+      this.base64=this.dialogData.data.images[0]
+
+      // on opening the edit form we set the header of the form to edit 
+      // and we set the submit button to update
       this.action="Update"
       this.dialogAction='Edit'
-      this.imagePath=this.dialogData.data.images[0]
       this.productForm.patchValue(this.dialogData.data)
 
     } 
@@ -48,8 +56,11 @@ export class AddEditProductComponent implements OnInit {
   }
 
 
+
+  //submiting form
   submit(){
     if(this.dialogAction==="Edit"){
+
       this.Edit()
 
      
@@ -60,10 +71,12 @@ export class AddEditProductComponent implements OnInit {
   }
 
 
-
+// adding product
   Add(){
     var formData=this.productForm.value
 
+
+// data that will be submitted to the addAPI
     var data={
       
       title:formData.title,
@@ -73,7 +86,9 @@ export class AddEditProductComponent implements OnInit {
       rating:formData.rating,
       brand:formData.brand,
       discountPercentage:formData.discountPercentage,
-      stock:formData.stock
+      stock:formData.stock,
+      // image as base 64 is a very big response entity so we will set it as small string
+      images:"image"
 
     }
 
@@ -89,13 +104,18 @@ export class AddEditProductComponent implements OnInit {
     })
 
 
-
-
   }
 
+
+
+
+// editing product
   Edit(){
 
     var formData=this.productForm.value
+
+
+    // data that will be submitted to the editAPI
 
     var data={
       title:formData.title,
@@ -106,10 +126,13 @@ export class AddEditProductComponent implements OnInit {
       brand:formData.brand,
       discountPercentage:formData.discountPercentage,
       stock:formData.stock,
+      images:"image"
 
     }
 
     this.productService.updateProduct(data,this.dialogData.data.id).subscribe(res=>{
+
+      // success response
 
       setTimeout(() => {
         alert('updated successfully')
@@ -120,6 +143,20 @@ export class AddEditProductComponent implements OnInit {
       this.dialogref.close()
     })
 
+
+
+  }
+
+
+// get image from the pc
+  getImagePath(event:any){
+    const file=event.target.files[0]
+    const reader=new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload=()=>{
+      this.base64=reader.result
+      this.productForm.get('image').setValue(this.base64)
+    }
 
 
   }

@@ -29,7 +29,8 @@ export class CardViewComponent {
 
   }
 
-
+// as we have one shared component for add and edit product
+// if we choose to edit we open the edit dialogue component
   openEditDialogProduct(values:any){
 
     let data = {
